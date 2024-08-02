@@ -1,3 +1,6 @@
 spring:
   application:
     name: weather
+
+weather-check:
+  daily-check-cron: 0 0 18 * * *
