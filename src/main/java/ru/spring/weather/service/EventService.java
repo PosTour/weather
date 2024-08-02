@@ -16,13 +16,11 @@ public class EventService {
 
     private final EventRepository eventRepository;
     private final EventMapper eventMapper;
-    private final UserService userService;
 
     @Autowired
-    public EventService(EventRepository eventRepository, EventMapper eventMapper, UserService userService) {
+    public EventService(EventRepository eventRepository, EventMapper eventMapper) {
         this.eventRepository = eventRepository;
         this.eventMapper = eventMapper;
-        this.userService = userService;
     }
 
     @Transactional
