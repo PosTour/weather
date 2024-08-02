@@ -1,0 +1,8 @@
+package ru.spring.weather.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class EventController {
+
+}
