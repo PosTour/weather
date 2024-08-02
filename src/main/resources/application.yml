@@ -2,5 +2,10 @@ spring:
   application:
     name: weather
 
+  Kafka:
+    bootstrapServers: kafka:9092
+    producer:
+      topic: weather
+
 weather-check:
   daily-check-cron: 0 0 18 * * *
