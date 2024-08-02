@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Entity
@@ -15,10 +17,27 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Event {
 
-    public enum EventType {
-        RAIN,
-        SNOW,
-        etc
+    public enum Type {
+        RAIN("Дождь"),
+        SNOW("Снег");
+
+        public final String label;
+
+        Type(String label) {
+            this.label = label;
+        }
+
+        private static final Map<String, Type> LOOKUP_MAP = new HashMap<>();
+
+        static {
+            for (Type type : values()) {
+                LOOKUP_MAP.put(type.label, type);
+            }
+        }
+
+        public static Type getTypeByString(String type) {
+            return LOOKUP_MAP.get(type);
+        }
     }
 
     @Id
@@ -26,16 +45,16 @@ public class Event {
     @Column(name = "id")
     private UUID id;
 
-    @Column(name = "event_type")
+    @Column(name = "type")
     @Enumerated(EnumType.ORDINAL)
-    private EventType eventType;
+    private Type type;
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
-    public Event(EventType eventType, User user) {
-        this.eventType = eventType;
+    public Event(Type type, User user) {
+        this.type = type;
         this.user = user;
     }
 }

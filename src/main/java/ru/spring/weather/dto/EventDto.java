@@ -1,6 +1,6 @@
 package ru.spring.weather.dto;
 
 public record EventDto(
-        String eventType,
+        String type,
         long chatId
 ) {}
