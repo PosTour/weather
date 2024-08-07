@@ -1,6 +1,8 @@
 package ru.spring.weather.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.EntityManager;
+import lombok.RequiredArgsConstructor;
+import org.hibernate.Session;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.spring.weather.dto.UserDto;
@@ -12,16 +14,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-
-    @Autowired
-    public UserService(UserRepository userRepository, UserMapper userMapper) {
-        this.userRepository = userRepository;
-        this.userMapper = userMapper;
-    }
+    private final EntityManager entityManager;
 
     @Transactional
     public void saveUser(UserDto userDto) {
@@ -37,5 +35,12 @@ public class UserService {
     @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @Transactional
+    public List<User> getUsersWithEvents() {
+        Session session = entityManager.unwrap(Session.class);
+
+        return (List<User>) session.createQuery("SELECT u FROM User u LEFT JOIN FETCH u.events");
     }
 }

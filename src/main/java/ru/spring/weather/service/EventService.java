@@ -1,6 +1,6 @@
 package ru.spring.weather.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.spring.weather.dto.EventDto;
@@ -12,16 +12,11 @@ import ru.spring.weather.repository.EventRepository;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class EventService {
 
     private final EventRepository eventRepository;
     private final EventMapper eventMapper;
-
-    @Autowired
-    public EventService(EventRepository eventRepository, EventMapper eventMapper) {
-        this.eventRepository = eventRepository;
-        this.eventMapper = eventMapper;
-    }
 
     @Transactional
     public void saveEvent(EventDto eventDto) {
