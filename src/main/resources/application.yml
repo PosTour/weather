@@ -7,5 +7,17 @@ spring:
     producer:
       topic: weather
 
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${spring.application.name}
+    username: postgres
+    password: postgres
+
 weather-check:
   daily-check-cron: 0 0 18 * * *
