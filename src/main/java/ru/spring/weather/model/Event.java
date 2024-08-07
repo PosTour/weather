@@ -45,6 +45,9 @@ public class Event {
     @Column(name = "id")
     private UUID id;
 
+    @Column(name = "city")
+    private String city;
+
     @Column(name = "type")
     @Enumerated(EnumType.ORDINAL)
     private Type type;
