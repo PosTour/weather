@@ -1,14 +1,22 @@
 package ru.spring.weather.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import ru.spring.weather.client.EventFeignClient;
 
 @Component
+@RequiredArgsConstructor
 public class DailyWeatherCheck {
+    private final EventFeignClient eventFeignClient;
+    private final KafkaSenderService kafkaSenderService;
 
     @Scheduled(cron = "${weather-check.daily-check-cron}")
     public void checkWeather() {
-        // TODO: отправка запроса для получения погодных явлений
-        //       вызов метода для отправки уведомления пользователю (при необходимости)
+
+    }
+
+    private void notifyUser() {
+
     }
 }
