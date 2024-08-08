@@ -1,21 +1,17 @@
 package ru.spring.weather.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.spring.weather.dto.UserDto;
 import ru.spring.weather.service.UserService;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("api/users")
 public class UserController {
 
     private final UserService userService;
-
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @PostMapping("/signup")
     public ResponseEntity<Void> signUp(@RequestBody UserDto userDto) {
