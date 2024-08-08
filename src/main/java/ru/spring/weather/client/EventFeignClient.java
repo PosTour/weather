@@ -8,7 +8,6 @@ import ru.spring.weather.dto.ForecastDto;
 import java.util.List;
 
 @FeignClient(value = "eventFeignClient", url = "")
-@Component
 public interface EventFeignClient {
     @GetMapping(value = "")
     List<ForecastDto> checkEvents(List<ForecastDto> forecastDtos);
