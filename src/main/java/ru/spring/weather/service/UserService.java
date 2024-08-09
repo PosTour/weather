@@ -38,9 +38,9 @@ public class UserService {
     }
 
     @Transactional
-    public List<User> getUsersWithEvents() {
+    public List<User> getUsersWithPhenoms() {
         Session session = entityManager.unwrap(Session.class);
 
-        return (List<User>) session.createQuery("SELECT u FROM User u LEFT JOIN FETCH u.events");
+        return (List<User>) session.createQuery("SELECT u FROM User u LEFT JOIN FETCH u.phenoms");
     }
 }

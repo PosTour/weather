@@ -25,7 +25,7 @@ public class User {
     private long chatId;
 
     @OneToMany(mappedBy = "user")
-    private List<Event> events;
+    private List<Phenom> phenoms;
 
     public User(long chatId) {
         this.chatId = chatId;

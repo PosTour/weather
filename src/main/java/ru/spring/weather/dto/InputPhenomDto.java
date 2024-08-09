@@ -1,9 +1,6 @@
 package ru.spring.weather.dto;
 
-import java.util.UUID;
-
-public record OutputEventDto(
-        UUID id,
+public record InputPhenomDto(
         String city,
         String type,
         long chatId

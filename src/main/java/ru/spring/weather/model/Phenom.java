@@ -15,7 +15,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Event {
+public class Phenom {
 
     public enum Type {
         RAIN("Дождь"),
@@ -56,7 +56,7 @@ public class Event {
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
-    public Event(Type type, User user) {
+    public Phenom(Type type, User user) {
         this.type = type;
         this.user = user;
     }

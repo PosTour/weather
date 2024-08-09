@@ -6,8 +6,8 @@ import ru.spring.weather.dto.ForecastDto;
 
 import java.util.List;
 
-@FeignClient(value = "eventFeignClient", url = "")
-public interface EventFeignClient {
+@FeignClient(value = "phenomFeignClient", url = "")
+public interface PhenomFeignClient {
     @GetMapping(value = "")
-    List<ForecastDto> checkEvents(List<ForecastDto> forecastDtos);
+    List<ForecastDto> checkPhenoms(List<ForecastDto> forecastDtos);
 }
