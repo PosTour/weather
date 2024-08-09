@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>ru.spring</groupId>
 	<artifactId>weather</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>latest</version>
 	<name>weather</name>
 	<description>Food Delievery</description>
 	<url/>
