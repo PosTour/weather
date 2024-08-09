@@ -19,5 +19,12 @@ spring:
     username: postgres
     password: postgres
 
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        loggerLevel: basic
+
 weather-check:
   daily-check-cron: 0 0 18 * * *
