@@ -5,6 +5,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import ru.spring.weather.client.PhenomFeignClient;
 import ru.spring.weather.dto.ForecastDto;
+import ru.spring.weather.dto.NotificationDto;
 import ru.spring.weather.model.User;
 
 import java.util.*;
@@ -51,9 +52,10 @@ public class DailyWeatherCheck {
                     if (forecastDto.phenoms().contains(phenom.getType().toString())
                             && Objects.equals(phenom.getCity(), forecastDto.city())) {
                         kafkaSenderService.sendToBot(
-                                user.getChatId() + " " +
-                                forecastDto.city() + " " +
-                                phenom.getType());
+                                new NotificationDto(
+                                    user.getChatId(),
+                                    forecastDto.city(),
+                                    phenom.getType().toString()));
                     }
         });});});
     }
