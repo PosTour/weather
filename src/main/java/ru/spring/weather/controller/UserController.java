@@ -15,7 +15,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public ResponseEntity<Void> signUp(@RequestBody UserDto userDto) {
-        if (userService.getUserByChatId(userDto.chatId()).isPresent()) {
+        if (userService.getUserByChatId(userDto.chatId()).isEmpty()) {
             userService.saveUser(userDto);
         }
         return ResponseEntity.ok().build();
