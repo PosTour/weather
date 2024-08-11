@@ -60,7 +60,7 @@ public class Phenom {
     private String city;
 
     @Column(name = "type")
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Type type;
 
     @ManyToOne
