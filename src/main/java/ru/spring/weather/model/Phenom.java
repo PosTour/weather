@@ -18,8 +18,14 @@ import java.util.UUID;
 public class Phenom {
 
     public enum Type {
-        RAIN("Дождь"),
-        SNOW("Снег");
+        CLEAR("Clear"),
+        HAIL("Hail"),
+        OVERCAST("Overcast"),
+        RAIN("Rain"),
+        SHOWERS("Showers"),
+        SLEET("Sleet"),
+        SNOW("Snow"),
+        THUNDERSTORM("Thunderstorm");
 
         public final String label;
 

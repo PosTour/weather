@@ -20,8 +20,8 @@ public class PhenomController {
     private final PhenomMapper phenomMapper;
 
     @PostMapping("/add")
-    public ResponseEntity<Void> addPhenom(@RequestBody InputPhenomDto eventDto) {
-        phenomService.savePhenom(eventDto);
+    public ResponseEntity<Void> addPhenom(@RequestBody InputPhenomDto phenomDto) {
+        phenomService.savePhenom(phenomDto);
         return ResponseEntity.ok().build();
     }
 
