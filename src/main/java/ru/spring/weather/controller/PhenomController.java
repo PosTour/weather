@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/events")
+@RequestMapping("/api/phenom")
 public class PhenomController {
 
     private final PhenomService phenomService;
@@ -32,7 +32,7 @@ public class PhenomController {
     }
 
     @DeleteMapping("/delete/${id}")
-    public ResponseEntity<Void> deletePhenom(@PathVariable UUID id) {
+    public ResponseEntity<Void> deletePhenom(@PathVariable("id") UUID id) {
         phenomService.deletePhenom(id);
         return ResponseEntity.ok().build();
     }
