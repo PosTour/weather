@@ -26,9 +26,9 @@ public class PhenomController {
     }
 
     @GetMapping("/all/by/${user_id}")
-    List<OutputPhenomDto> getAllPhenomsByUserId(@PathVariable("user_id") UUID userId) {
-        var events = phenomService.getAllPhenomsByUser(userId);
-        return phenomMapper.phenomsToOutputPhenomDtos(events);
+    List<OutputPhenomDto> getAllPhenomsByUserId(@PathVariable("chat_id") long chatId) {
+        var phenoms = phenomService.getAllPhenomsByUser(chatId);
+        return phenomMapper.phenomsToOutputPhenomDtos(phenoms);
     }
 
     @DeleteMapping("/delete/${id}")
