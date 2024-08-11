@@ -27,7 +27,7 @@ public class Phenom {
         SNOW("Snow"),
         THUNDERSTORM("Thunderstorm");
 
-        public final String label;
+        private final String label;
 
         Type(String label) {
             this.label = label;
@@ -43,6 +43,11 @@ public class Phenom {
 
         public static Type getTypeByString(String type) {
             return LOOKUP_MAP.get(type);
+        }
+
+        @Override
+        public String toString() {
+            return label;
         }
     }
 
