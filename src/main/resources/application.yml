@@ -6,6 +6,7 @@ spring:
     bootstrapServers: kafka:9092
     producer:
       topic: weather
+      acks: all
 
   jpa:
     properties:
