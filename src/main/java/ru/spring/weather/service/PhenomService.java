@@ -32,7 +32,7 @@ public class PhenomService {
     }
 
     public void savePhenom(InputPhenomDto phenomDto) {
-        var event = phenomMapper.phenomDtoToPhenom(phenomDto, userService);
+        var event = phenomMapper.inputPhenomDtoToPhenom(phenomDto, userService);
         phenomRepository.save(event);
     }
 
