@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Entity
-@Table(name = "event")
+@Table(name = "phenom")
 @Getter
 @Setter
 @NoArgsConstructor
