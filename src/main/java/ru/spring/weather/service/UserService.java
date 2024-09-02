@@ -32,7 +32,7 @@ public class UserService {
 
     @Transactional
     public void saveUser(UserDto userDto) {
-        var user = userMapper.userDtoToUser(userDto, UUID.randomUUID());
+        var user = userMapper.userDtoToUser(userDto);
         userRepository.save(user);
     }
 

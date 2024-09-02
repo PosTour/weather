@@ -12,8 +12,6 @@ import java.util.List;
 
 @Mapper
 public interface PhenomMapper {
-
-    @Mapping(target = "id", expression = "java(UUID.randomUUID())")
     @Mapping(target = "user", expression = "java(userService.getUserByChatId(phenomDto.chatId()).get())")
     @Mapping(target = "type", expression = "java(Phenom.Type.getTypeByString(phenomDto.type()))")
     Phenom inputPhenomDtoToPhenom(InputPhenomDto phenomDto, @Context UserService userService);
