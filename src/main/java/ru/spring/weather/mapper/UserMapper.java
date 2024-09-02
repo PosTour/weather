@@ -9,6 +9,5 @@ import java.util.UUID;
 
 @Mapper
 public interface UserMapper {
-    @Mapping(target = "id", expression = "java(userId)")
-    User userDtoToUser(UserDto userDto, UUID userId);
+    User userDtoToUser(UserDto userDto);
 }
