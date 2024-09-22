@@ -24,4 +24,7 @@ Liquibase: Для миграции базы данных и контроля в�
 2. Соберите образ: ./mvnw spring-boot:build-image (или воспользуйтесь окном инструментов IDEA: 
 Maven -> weather -> Plugins -> spring-boot -> spring-boot:build-image).
 
-Для реализации полного функционала приложения необходима интеграция с сервисами https://github.com/PosTour/weather_bot и https://github.com/PosTour/WeatherForecastAPI
+Подразумевается интеграция со следующими сервисами:<br />
+https://github.com/PosTour/weather_bot<br />
+https://github.com/PosTour/WeatherForecastAPI<br />
+https://github.com/PosTour/weather_environment
